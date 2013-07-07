@@ -22,7 +22,7 @@ $(function() {
 
 		var canvas = $('#canvas-container')[0];
 		var ctx = canvas.getContext("2d");
-		var square_factor = 2;
+		var square_factor = 10;
 		var orig_x = canvas.width/2;
 		var orig_y = canvas.height/2;
 
@@ -35,7 +35,7 @@ $(function() {
 		ctx.strokeRect(orig_x, orig_y, square_factor, square_factor);
 		var r = 0; // 0-2 radians
 
-		for (var i = 1; i < 20; i++) {
+		for (var i = 1; i < 10; i++) {
 			var a = fib_seq[i-1];
 			var b = fib_seq[i];
 			var c = a+ b;
@@ -47,13 +47,21 @@ $(function() {
 			r2 = r+0.5;
 			console.log("r2="+r2);
 
-			
-
 			ctx.beginPath();
       		ctx.arc(orig_x, orig_y, b*square_factor, r  * Math.PI, r2 * Math.PI, false);
-      		ctx.lineWidth = 2;
+      		ctx.lineWidth = 1.5;
 			ctx.strokeStyle = 'black';
       		ctx.stroke();
+
+      		// square
+      		
+      		sq_y = 0;
+      		sq_x = 0;
+      		if (r2==0.5) sq_y = 0;
+      		if (r2==1) { sq_x = -b*square_factor; sq_y = 0; }
+      		if (r2==1.5) { sq_x = -b*square_factor; sq_y= -b*square_factor; }
+      		if (r2==2) sq_y = -b*square_factor;
+      		ctx.strokeRect(orig_x + sq_x, orig_y + sq_y, square_factor*b, square_factor*b);
 
       		if (r2==0.5) ctx.transform(1,0,0,1,0,-a*square_factor);
       		if (r2==1) ctx.transform(1,0,0,1,a*square_factor,0);
