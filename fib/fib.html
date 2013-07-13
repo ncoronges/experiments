@@ -53,18 +53,18 @@ $(function() {
             arc_trans_y = 0;
 
             if (r2==0.5) {
-            sq_y = 0;
-            arc_trans_y = -a*square_factor;
+                sq_y = 0;
+                arc_trans_y = -a*square_factor;
             } else if (r2==1) {
-            sq_x = -b*square_factor; 
-            arc_trans_x = a*square_factor;
+                sq_x = -b*square_factor; 
+                arc_trans_x = a*square_factor;
             } else if (r2==1.5) {
-            sq_x = -b*square_factor; 
-            sq_y= -b*square_factor;
-            arc_trans_y = a*square_factor;
+                sq_x = -b*square_factor; 
+                sq_y= -b*square_factor;
+                arc_trans_y = a*square_factor;
             } else {
-            sq_y = -b*square_factor;
-            arc_trans_x = -a*square_factor;
+                sq_y = -b*square_factor;
+                arc_trans_x = -a*square_factor;
             }
 
             ctx.strokeRect(orig_x + sq_x, orig_y + sq_y, square_factor*b, square_factor*b);
