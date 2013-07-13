@@ -42,36 +42,36 @@ $(function() {
 
 			// draw the arc 
 			ctx.beginPath();
-      		ctx.arc(orig_x, orig_y, b*square_factor, r  * Math.PI, r2 * Math.PI, false);
-      		ctx.lineWidth = 1.5;
-			ctx.strokeStyle = 'black';
-      		ctx.stroke();
-      		
-      		sq_y = 0;
-      		sq_x = 0;
-      		arc_trans_x = 0;
-      		arc_trans_y = 0;
+            ctx.arc(orig_x, orig_y, b*square_factor, r  * Math.PI, r2 * Math.PI, false);
+            ctx.lineWidth = 1.5;
+            ctx.strokeStyle = 'black';
+            ctx.stroke();
 
-      		if (r2==0.5) {
-      			sq_y = 0;
-      			arc_trans_y = -a*square_factor;
-      		} else if (r2==1) {
-      			sq_x = -b*square_factor; 
-      			arc_trans_x = a*square_factor;
-      		} else if (r2==1.5) {
-      			sq_x = -b*square_factor; 
-      			sq_y= -b*square_factor;
-      			arc_trans_y = a*square_factor;
-      		} else {
-      			sq_y = -b*square_factor;
-      			arc_trans_x = -a*square_factor;
-      		}
-      		
-      		ctx.strokeRect(orig_x + sq_x, orig_y + sq_y, square_factor*b, square_factor*b);
-      		ctx.transform(1,0,0,1,arc_trans_x, arc_trans_y);
-      		
-      		r = r+0.5; 
-      		if (r>1.5) r = 0;
+            sq_y = 0;
+            sq_x = 0;
+            arc_trans_x = 0;
+            arc_trans_y = 0;
+
+            if (r2==0.5) {
+            sq_y = 0;
+            arc_trans_y = -a*square_factor;
+            } else if (r2==1) {
+            sq_x = -b*square_factor; 
+            arc_trans_x = a*square_factor;
+            } else if (r2==1.5) {
+            sq_x = -b*square_factor; 
+            sq_y= -b*square_factor;
+            arc_trans_y = a*square_factor;
+            } else {
+            sq_y = -b*square_factor;
+            arc_trans_x = -a*square_factor;
+            }
+
+            ctx.strokeRect(orig_x + sq_x, orig_y + sq_y, square_factor*b, square_factor*b);
+            ctx.transform(1,0,0,1,arc_trans_x, arc_trans_y);
+
+            r = r+0.5; 
+            if (r>1.5) r = 0;
 		};
 		
 
